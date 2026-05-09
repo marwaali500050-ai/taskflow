@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>TaskFlow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+<div class="grain"></div>
+
+<header>
+  <div class="logo">Task<span>Flow</span></div>
+  <nav class="filters">
+    <button class="filter-btn active" data-status="">All</button>
+    <button class="filter-btn" data-status="todo">Todo</button>
+    <button class="filter-btn" data-status="in_progress">In Progress</button>
+    <button class="filter-btn" data-status="done">Done</button>
+  </nav>
+  <button class="btn-add" id="openModal">+ New Task</button>
+</header>
+
+<main>
+  <section class="stats-bar" id="statsBar">
+    <div class="stat"><span class="stat-num" id="statTotal">0</span><span class="stat-label">Total</span></div>
+    <div class="stat"><span class="stat-num" id="statTodo">0</span><span class="stat-label">Todo</span></div>
+    <div class="stat"><span class="stat-num" id="statProgress">0</span><span class="stat-label">In Progress</span></div>
+    <div class="stat"><span class="stat-num" id="statDone">0</span><span class="stat-label">Done</span></div>
+  </section>
+
+  <div class="board" id="board">
+    <div class="col" id="col-todo">
+      <div class="col-header"><span class="col-dot todo-dot"></span>Todo</div>
+      <div class="col-tasks" id="tasks-todo"></div>
+    </div>
+    <div class="col" id="col-in_progress">
+      <div class="col-header"><span class="col-dot progress-dot"></span>In Progress</div>
+      <div class="col-tasks" id="tasks-in_progress"></div>
+    </div>
+    <div class="col" id="col-done">
+      <div class="col-header"><span class="col-dot done-dot"></span>Done</div>
+      <div class="col-tasks" id="tasks-done"></div>
+    </div>
+  </div>
+  <div class="empty-state" id="emptyState" style="display:none">
+    <div class="empty-icon">✦</div>
+    <p>No tasks yet. Create your first one!</p>
+  </div>
+</main>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <button class="modal-close" id="closeModal">✕</button>
+    <h2 id="modalTitle">New Task</h2>
+    <div class="form-group">
+      <label>Title *</label>
+      <input type="text" id="taskTitle" placeholder="What needs to be done?"/>
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea id="taskDesc" placeholder="Add details..."></textarea>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Priority</label>
+        <select id="taskPriority">
+          <option value="low">Low</option>
+          <option value="medium" selected>Medium</option>
+          <option value="high">High</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Due Date</label>
+        <input type="date" id="taskDue"/>
+      </div>
+    </div>
+    <div class="form-group" id="statusGroup" style="display:none">
+      <label>Status</label>
+      <select id="taskStatus">
+        <option value="todo">Todo</option>
+        <option value="in_progress">In Progress</option>
+        <option value="done">Done</option>
+      </select>
+    </div>
+    <button class="btn-save" id="saveTask">Save Task</button>
+  </div>
+</div>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>
