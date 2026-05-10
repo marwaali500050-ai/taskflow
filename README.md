@@ -540,14 +540,4 @@ taskflow/
 
 ---
 
-## Team Contributions
 
-| Member | Contributions |
-|--------|--------------|
-| Dev A | Flask API, test suite, CI/CD |
-| Dev B | Frontend JS, Kanban board, deployment |
-| Dev C | CSS/UI design, filter system, documentation |
-
----
-
-*TaskFlow v1.0 — Built for Software Engineering Course*
